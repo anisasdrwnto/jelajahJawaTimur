@@ -42,7 +42,7 @@
                         <td>{{ $event->eve_kuota }}</td>
                         <td>
                             <span class="badge bg-secondary">
-                                {{ $event->pendaftarans()->whereIn('pdf_status',['pending','approved'])->count() }}
+                                {{ $event->pendaftaran()->count() }}
                                 / {{ $event->eve_kuota }}
                             </span>
                         </td>

@@ -45,6 +45,8 @@ $(document).ready(function(){
                     if(errors){
                         message = Object.values(errors)[0][0];
                     }
+                } else if(xhr.status === 401){
+                    message = xhr.responseJSON?.message || 'Email atau password salah.';
                 } else if(xhr.status === 419){
                     message = 'Sesi habis, silakan refresh halaman';
                 }
