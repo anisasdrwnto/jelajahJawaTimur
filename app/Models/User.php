@@ -6,6 +6,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    protected $connection = 'db_pc1'; // ← tambah ini
+
     protected $table = 'mst_users';
     protected $primaryKey = 'mus_id_users';
     public $incrementing = false;
@@ -35,5 +37,10 @@ class User extends Authenticatable
     public function getAuthPassword()
     {
         return $this->mus_password;
+    }
+
+    public function getAuthPasswordName() // ← tambah ini untuk Laravel 11
+    {
+        return 'mus_password';
     }
 }
