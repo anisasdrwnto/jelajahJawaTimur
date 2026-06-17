@@ -50,9 +50,7 @@
                                     <li><span class="dropdown-item-text fw-semibold">{{ Auth::user()->nama }}</span></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
-                                        <a class="dropdown-item" href="{{ route('profile.edit') }}">
-                                            <i class="bi bi-person me-2"></i>Edit Profil
-                                        </a>
+                                        <a class="dropdown-item" href="#">
                                     </li>
                                     <li>
                                         {{-- Ganti logout.php ke form POST Laravel --}}
