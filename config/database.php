@@ -114,6 +114,27 @@ return [
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
 
+        'db_pc1' => [
+            'driver'    => 'mysql',
+            'host'      => '127.0.0.1',
+            'port'      => '3307',
+            'database'  => 'db_jelajah_jatim',
+            'username'  => 'root',
+            'password'  => '',
+            'charset'   => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+        ],
+
+        'db_pc2' => [
+            'driver'    => 'mysql',
+            'host'      => env('DB_PC2_HOST', '10.111.10.55'),
+            'port'      => env('DB_PC2_PORT', '3306'),
+            'database'  => env('DB_PC2_DATABASE', 'db_jelajah_jatim_2'),
+            'username'  => env('DB_PC2_USERNAME', 'remote_user'),
+            'password'  => env('DB_PC2_PASSWORD', 'password123'),
+            'charset'   => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+        ],
     ],
 
     /*
