@@ -588,10 +588,10 @@
         </a>
 
         <div class="sb-section">Manajemen</div>
-        <a href="#" class="sb-link">
+        <a href="{{ route('admin.event.index') }}" class="sb-link">
             <i class="bi bi-calendar-event"></i>
             Event
-            <span class="sb-badge">128</span>
+            <span class="sb-badge">{{ $totalEvent ?? 0 }}</span>
         </a>
         <a href="#" class="sb-link">
             <i class="bi bi-geo-alt"></i>
@@ -710,7 +710,7 @@
                     <span class="stat-menu"><i class="bi bi-three-dots-vertical"></i></span>
                 </div>
                 <div>
-                    <div class="stat-value">128</div>
+                    <div class="stat-value">{{ $totalEvent }}</div>
                     <div class="stat-label">Total Event</div>
                 </div>
                 <div class="stat-footer">
@@ -731,7 +731,7 @@
                     <span class="stat-menu"><i class="bi bi-three-dots-vertical"></i></span>
                 </div>
                 <div>
-                    <div class="stat-value">3.4K</div>
+                    <div class="stat-value">{{ $totalPengguna }}</div>
                     <div class="stat-label">Total Pengguna</div>
                 </div>
                 <div class="stat-footer">
@@ -752,7 +752,7 @@
                     <span class="stat-menu"><i class="bi bi-three-dots-vertical"></i></span>
                 </div>
                 <div>
-                    <div class="stat-value">892</div>
+                    <div class="stat-value">{{ $tiketTerjual }}</div>
                     <div class="stat-label">Tiket Terjual</div>
                 </div>
                 <div class="stat-footer">
@@ -773,7 +773,7 @@
                     <span class="stat-menu"><i class="bi bi-three-dots-vertical"></i></span>
                 </div>
                 <div>
-                    <div class="stat-value">47</div>
+                    <div class="stat-value">{{ $lokasiAktif }}</div>
                     <div class="stat-label">Lokasi Aktif</div>
                 </div>
                 <div class="stat-footer">

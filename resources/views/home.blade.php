@@ -106,15 +106,15 @@
             </div>
 
             <div class="pinterest-grid">
-                <!-- CARD 1 -->
+                @forelse($events as $event)
                 <div class="pinterest-card">
                     <div class="card-image">
-                        <img src="{{ asset('assets/event1.jpeg') }}" alt="Banyuwangi Ethno Carnival">
+                        <img src="{{ $event->eve_gambar ? (Str::startsWith($event->eve_gambar, 'assets/') ? asset($event->eve_gambar) : Storage::url($event->eve_gambar)) : asset('assets/placeholder.jpg') }}" alt="{{ $event->eve_nama_event }}">
                         <div class="card-overlay"></div>
                     </div>
                     <div class="card-content">
                         <div class="card-meta">
-                            <span class="event-tag1">Festival</span>
+                            <span class="event-tag1">{{ $event->eve_kategori }}</span>
                             <div class="card-date">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <rect x="3" y="4" width="18" height="18" rx="2" />
@@ -122,64 +122,19 @@
                                     <line x1="8" y1="2" x2="8" y2="6" />
                                     <line x1="3" y1="10" x2="21" y2="10" />
                                 </svg>
-                                18 Juli 2026
+                                {{ \Carbon\Carbon::parse($event->eve_tanggal)->translatedFormat('d F Y') }}
                             </div>
                         </div>
-                        <h3>Banyuwangi Ethno Carnival</h3>
-                        <p>Rayakan keberagaman budaya lewat parade kostum etnik yang memukau di jantung Banyuwangi.</p>
-                        <button type="button" class="btn card-btn w-100 mt-3 rounded-3 py-2 fw-semibold">Daftar Sekarang</button>
+                        <h3>{{ $event->eve_nama_event }}</h3>
+                        <p>{{ Str::limit($event->eve_deskripsi, 100) }}</p>
+                        <a href="{{ route('pendaftaran.form', $event->eve_id_event) }}" class="btn card-btn w-100 mt-3 rounded-3 py-2 fw-semibold text-center" style="text-decoration:none;">Daftar Sekarang</a>
                     </div>
                 </div>
-
-                <!-- CARD 2 -->
-                <div class="pinterest-card">
-                    <div class="card-image">
-                        <img src="{{ asset('assets/event2.jpg') }}" alt="Ijen Geopark Run 2026">
-                        <div class="card-overlay"></div>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-meta">
-                            <span class="event-tag2">Petualangan</span>
-                            <div class="card-date">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="3" y="4" width="18" height="18" rx="2" />
-                                    <line x1="16" y1="2" x2="16" y2="6" />
-                                    <line x1="8" y1="2" x2="8" y2="6" />
-                                    <line x1="3" y1="10" x2="21" y2="10" />
-                                </svg>
-                                23 Agustus 2026
-                            </div>
-                        </div>
-                        <h3>Ijen Geopark Run 2026</h3>
-                        <p>Tantang dirimu berlari melintasi jalur vulkanik dengan pemandangan Kawah Ijen yang tak terlupakan.</p>
-                        <button type="button" class="btn card-btn w-100 mt-3 rounded-3 py-2 fw-semibold">Daftar Sekarang</button>
-                    </div>
+                @empty
+                <div class="col-12 text-center text-muted py-5" style="grid-column: 1 / -1;">
+                    <p>Belum ada event yang tersedia saat ini.</p>
                 </div>
-
-                <!-- CARD 3 -->
-                <div class="pinterest-card">
-                    <div class="card-image">
-                        <img src="{{ asset('assets/event3.jpg') }}" alt="Gandrung Sewu">
-                        <div class="card-overlay"></div>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-meta">
-                            <span class="event-tag3">Kebudayaan</span>
-                            <div class="card-date">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="3" y="4" width="18" height="18" rx="2" />
-                                    <line x1="16" y1="2" x2="16" y2="6" />
-                                    <line x1="8" y1="2" x2="8" y2="6" />
-                                    <line x1="3" y1="10" x2="21" y2="10" />
-                                </svg>
-                                25 Juli 2026
-                            </div>
-                        </div>
-                        <h3>Gandrung Sewu</h3>
-                        <p>Saksikan ribuan penari membawakan tarian Gandrung secara kolosal di tepi pantai Banyuwangi.</p>
-                        <button type="button" class="btn card-btn w-100 mt-3 rounded-3 py-2 fw-semibold">Daftar Sekarang</button>
-                    </div>
-                </div>
+                @endforelse
             </div>
 
             <div class="event-button">
