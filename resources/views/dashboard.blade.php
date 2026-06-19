@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard — Jelajah Jawa Timur</title>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -589,10 +588,10 @@
         </a>
 
         <div class="sb-section">Manajemen</div>
-        <a href="#" class="sb-link">
+        <a href="{{ route('admin.event.index') }}" class="sb-link">
             <i class="bi bi-calendar-event"></i>
             Event
-            <span class="sb-badge">128</span>
+            <span class="sb-badge">{{ $totalEvent ?? 0 }}</span>
         </a>
         <a href="#" class="sb-link">
             <i class="bi bi-geo-alt"></i>
@@ -711,7 +710,7 @@
                     <span class="stat-menu"><i class="bi bi-three-dots-vertical"></i></span>
                 </div>
                 <div>
-                    <div class="stat-value">128</div>
+                    <div class="stat-value">{{ $totalEvent }}</div>
                     <div class="stat-label">Total Event</div>
                 </div>
                 <div class="stat-footer">
@@ -732,7 +731,7 @@
                     <span class="stat-menu"><i class="bi bi-three-dots-vertical"></i></span>
                 </div>
                 <div>
-                    <div class="stat-value">3.4K</div>
+                    <div class="stat-value">{{ $totalPengguna }}</div>
                     <div class="stat-label">Total Pengguna</div>
                 </div>
                 <div class="stat-footer">
@@ -753,7 +752,7 @@
                     <span class="stat-menu"><i class="bi bi-three-dots-vertical"></i></span>
                 </div>
                 <div>
-                    <div class="stat-value">892</div>
+                    <div class="stat-value">{{ $tiketTerjual }}</div>
                     <div class="stat-label">Tiket Terjual</div>
                 </div>
                 <div class="stat-footer">
@@ -774,7 +773,7 @@
                     <span class="stat-menu"><i class="bi bi-three-dots-vertical"></i></span>
                 </div>
                 <div>
-                    <div class="stat-value">47</div>
+                    <div class="stat-value">{{ $lokasiAktif }}</div>
                     <div class="stat-label">Lokasi Aktif</div>
                 </div>
                 <div class="stat-footer">
